@@ -51,6 +51,20 @@ UNIMINUTO - Corporación Universitaria Minuto de Dios
 - Responsive Design
 - Interactive Game Engine
 
+## 🚀 Deploy Automático
+
+### Opción 1: Script de Deploy (Recomendado)
+```bash
+./deploy.sh
+```
+
+### Opción 2: Deploy Manual
+```bash
+git add .
+git commit -m "Actualización de contenido"
+git push origin main
+```
+
 ## 🏃‍♂️ Uso Local
 1. Clona el repositorio
 2. Abre `index.html` en tu navegador
