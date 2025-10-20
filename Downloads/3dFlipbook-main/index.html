@@ -2,353 +2,56 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=cartilla-flipbook.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartilla Digital - Heurísticas y Teoría de Juegos</title>
+    <title>Cartilla Digital - Redirección</title>
     <style>
         body {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: white;
-        }
-        .welcome-container {
+            font-family: Arial, sans-serif;
             text-align: center;
-            max-width: 800px;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
             padding: 40px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 15px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .subtitle {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        .access-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
         }
         .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s ease;
             display: inline-block;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            padding: 15px 30px;
+            background: #ff6b6b;
             color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            transition: all 0.3s ease;
         }
-        .btn-primary:hover {
+        .btn:hover {
+            background: #ff5252;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
-        }
-        .btn-secondary {
-            background: linear-gradient(45deg, #74b9ff, #0984e3);
-            color: white;
-            box-shadow: 0 4px 15px rgba(116, 185, 255, 0.4);
-        }
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(116, 185, 255, 0.6);
-        }
-        .author-info {
-            margin-top: 30px;
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-        .redirect-message {
-            margin-top: 20px;
-            font-size: 0.9em;
-            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <div class="welcome-container">
+    <div class="container">
         <h1>Cartilla Digital</h1>
-        <p class="subtitle">Inferencias - Heurísticas y Funciones de Evaluación en Teoría de Juegos</p>
-        
-        <div class="access-buttons">
-            <a href="cartilla-flipbook.html" class="btn btn-primary">Acceder a la Cartilla Interactiva</a>
-            <a href="cartilla-simple.html" class="btn btn-secondary">Versión Simple</a>
-        </div>
-        
-        <div class="author-info">
-            <p><strong>Autor:</strong> Leonardo Mosquera Rodríguez</p>
-            <p><strong>Institución:</strong> UNIMINUTO</p>
-        </div>
-        
-        <div class="redirect-message">
-            <p>Redirigiendo automáticamente a la versión interactiva en <span id="countdown">5</span> segundos...</p>
-        </div>
-    </div>
-
-    <script>
-        // Auto-redirect después de 5 segundos
-        let countdown = 5;
-        const countdownElement = document.getElementById('countdown');
-        
-        const timer = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-            
-            if (countdown <= 0) {
-                clearInterval(timer);
-                window.location.href = 'cartilla-flipbook.html';
-            }
-        }, 1000);
-        
-        // Permitir cancelar el auto-redirect si el usuario interactúa
-        document.addEventListener('click', () => {
-            clearInterval(timer);
-            document.querySelector('.redirect-message').style.display = 'none';
-        });
-    </script>
-      .fullscreen {
-        background-color: #333;
-      }
-      .examples {
-        position: relative;
-      }
-      .examples div {
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        padding-top: 10px;
-        font-size: 20px;
-      }
-      .examples a {
-        color: #ccc;
-        text-decoration: none;
-        padding: 0 10px;
-      }
-      .examples a:hover {
-        color: #fff;
-      }
-    </style>
-
-    <div class="examples">
-      <div>
-        <a href="cartilla-simple.html">📱 Versión Simple</a> 
-        <a href="example1.html">Lightbox</a>
-        <a href="example2.html">Más Ejemplos</a>
+        <p>Inferencias - Heurísticas y Funciones de Evaluación en Teoría de Juegos</p>
+        <p>Redirigiendo automáticamente...</p>
+        <p>Si no se redirige automáticamente, haz clic en el enlace:</p>
+        <a href="cartilla-flipbook.html" class="btn">Acceder a la Cartilla</a>
         <br><br>
-        <span style="color: #27ae60; font-size: 24px; font-weight: bold;">
-          📚 Cartilla Digital: Heurísticas y Funciones de Evaluación en Teoría de Juegos
-        </span>
-        <br>
-        <span style="color: #ecf0f1; font-size: 14px;">
-          Si el flipbook 3D tarda en cargar, prueba la <a href="cartilla-simple.html" style="color: #f39c12;">versión simple</a>
-        </span>
-      </div>
+        <p style="font-size: 0.9em; opacity: 0.8;">Leonardo Mosquera Rodríguez - UNIMINUTO</p>
     </div>
-
-    <div class="container" id="container">
-
-    </div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/html2canvas.min.js"></script>
-    <script src="js/three.min.js"></script>
-    <script src="js/pdf.min.js"></script>
-
-    <script src="js/3dflipbook.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        // Cartilla Digital de Heurísticas y Teoría de Juegos
-        function cartillaPageCallback(n) {
-          const pages = [
-            'cartilla/portada.html',
-            'cartilla/pagina-legal.html', 
-            'cartilla/tabla-contenido.html',
-            'cartilla/introduccion.html',
-            'cartilla/heuristicas.html',
-            'cartilla/teoria-juegos.html',
-            'cartilla/ejercicio-practico.html',
-            'cartilla/analisis-comportamiento.html',
-            'cartilla/conclusiones.html',
-            'cartilla/referencias.html'
-          ];
-          
-          return {
-            type: 'html',
-            src: pages[n] || pages[0],
-            interactive: true
-          };
-        }
-        
-        console.log('Inicializando flipbook...');
-        console.log($('#container'));
-        
-        $('#container').FlipBook({
-          pageCallback: cartillaPageCallback,
-          pages: 10,
-          propertiesCallback: function(props) {
-            props.cover.color = 0x2c3e50;
-            props.cover.padding = 0.002;
-            props.page.depth *= 1.2;
-            return props;
-          },
-          template: {
-            html: 'templates/default-book-view.html',
-            styles: [
-              'css/white-book-view.css'
-            ],
-            links: [
-              {
-                rel: 'stylesheet',
-                href: 'css/font-awesome.min.css'
-              }
-            ],
-            script: 'js/default-book-view.js'
-          }
-        });
-      });
-
-      // $('#container').FlipBook({
-      //   pageCallback: theKingIsBlackPageCallback,
-      //   pages: 40,
-      //   propertiesCallback: function(props) {
-      //     props.cssLayersLoader = function(n, clb) {// n - page number
-      //       clb([{
-      //         css: '.hd {margin-top: 200px;background-color: red;}',
-      //         html: '<h1 class="hd">CSS3 Layer - Hello</h1>',
-      //         js: function (jContainer) {
-      //           console.log(jContainer);
-      //           return {
-      //             hide: function() {console.log('hide');},
-      //             hidden: function() {console.log('hidden');},
-      //             show: function() {console.log('show');},
-      //             shown: function() {console.log('shown');},
-      //             dispose: function() {console.log('dispose');}
-      //           };
-      //         }
-      //       }]);
-      //     };
-      //     props.cover.color = 0x000000;
-      //     return props;
-      //   },
-      //   template: {
-      //     html: 'templates/default-book-view.html',
-      //     styles: [
-      //       'css/short-white-book-view.css'
-      //     ],
-      //     links: [
-      //       {
-      //         rel: 'stylesheet',
-      //         href: 'css/font-awesome.min.css'
-      //       }
-      //     ],
-      //     script: 'js/default-book-view.js',
-      //     sounds: {
-      //       startFlip: 'sounds/start-flip.mp3',
-      //       endFlip: 'sounds/end-flip.mp3'
-      //     }
-      //   }
-      // });
-      // // }
-
-      // // Sample 2 {
-      // $('#container').FlipBook({
-      //   pdf: 'books/pdf/CondoLiving.pdf',
-      //   pages: 5,
-      //   template: {
-      //     html: 'templates/default-book-view.html',
-      //     styles: [
-      //       'css/white-book-view.css'
-      //     ],
-      //     links: [
-      //       {
-      //         rel: 'stylesheet',
-      //         href: 'css/font-awesome.min.css'
-      //       }
-      //     ],
-      //     script: 'js/default-book-view.js'
-      //   }
-      // });
-      // // }
-
-      // // Sample 3 {
-      // $('#container').FlipBook({
-      //   pdf: 'books/pdf/TheThreeMusketeers.pdf',
-      //   propertiesCallback: function(props) {
-      //     props.page.depth /= 2.5;
-      //     props.cover.padding = 0.002;
-      //     return props;
-      //   },
-      //   template: {
-      //     html: 'templates/default-book-view.html',
-      //     styles: [
-      //       'css/short-black-book-view.css'
-      //     ],
-      //     links: [
-      //       {
-      //         rel: 'stylesheet',
-      //         href: 'css/font-awesome.min.css'
-      //       }
-      //     ],
-      //     script: 'js/default-book-view.js'
-      //   }
-      // });
-      // // }
-
-      // // Sample 4 {
-      // function preview(n) {
-      //   return {
-      //     type: 'html',
-      //     src: 'books/html/preview/'+(n%3+1)+'.html',
-      //     interactive: true
-      //   };
-      // }
-      //
-      // $('#container').FlipBook({
-      //   pageCallback: preview,
-      //   pages: 20,
-      //   propertiesCallback: function(props) {
-      //     props.sheet.color = 0x008080;
-      //     props.cover.padding = 0.002;
-      //     return props;
-      //   },
-      //   template: {
-      //     html: 'templates/default-book-view.html',
-      //     styles: [
-      //       'css/black-book-view.css'
-      //     ],
-      //     links: [
-      //       {
-      //         rel: 'stylesheet',
-      //         href: 'css/font-awesome.min.css'
-      //       }
-      //     ],
-      //     script: 'js/default-book-view.js'
-      //   }
-      // });
-      // // }
-
+    
+    <script>
+        // Redirección inmediata
+        window.location.href = 'cartilla-flipbook.html';
     </script>
-
-  </body>
+</body>
 </html>
