@@ -43,11 +43,11 @@ if [ $? -eq 0 ]; then
     echo "✅ Push exitoso!"
     echo ""
     echo "🌐 El deploy se está procesando automáticamente..."
-    echo "📍 URL del sitio: https://leomos2022.github.io/inferencias_cartilla_digital/"
+    echo "📍 URL del sitio: https://leomos2022.github.io/inferencias/"
     echo ""
     echo "⏱️  El deploy puede tardar 1-2 minutos en completarse."
     echo "🔍 Puedes verificar el progreso en:"
-    echo "   https://github.com/leomos2022/inferencias_cartilla_digital/actions"
+    echo "   https://github.com/leomos2022/inferencias/actions"
     echo ""
     echo "🎉 ¡Deploy iniciado exitosamente!"
 else
