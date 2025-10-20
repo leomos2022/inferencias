@@ -1,39 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GitHub Pages Test - Cartilla Digital</title>
+    <title>✅ GitHub Pages Configurado - Cartilla Digital</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { font-size: 2.5em; text-align: center; margin-bottom: 20px; }
+        .status { background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .links { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0; }
+        .btn {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover { background: white; transform: translateY(-2px); }
+    </style>
 </head>
 <body>
-    <h1>🚀 GitHub Pages Test - Funcionando!</h1>
-    <p>Este es un test para verificar que GitHub Pages está funcionando correctamente.</p>
-    <p>Timestamp: 2025-10-20 00:20</p>
-    
-    <div style="margin: 20px 0; padding: 20px; background: #f0f0f0; border-radius: 10px;">
-        <h3>Enlaces disponibles:</h3>
-        <ul>
-            <li><a href="cartilla-flipbook.html">📖 Cartilla Flipbook 3D</a></li>
-            <li><a href="cartilla-simple.html">📄 Versión Simple</a></li>
-            <li><a href="test.html">🔧 Página de Test</a></li>
-        </ul>
-    </div>
-    
-    <div style="margin-top: 30px; padding: 20px; background: #e8f4fd; border-radius: 10px;">
-        <h3>Debug Info:</h3>
-        <p><strong>Repositorio:</strong> leomos2022/inferencias</p>
-        <p><strong>URL:</strong> https://leomos2022.github.io/inferencias/</p>
-        <p><strong>index.html en root:</strong> ✅</p>
-        <p><strong>GitHub Actions configurado:</strong> ✅</p>
-        <p><strong>GitHub Pages habilitado:</strong> 🔄 En verificación</p>
+    <div class="container">
+        <h1>🚀 GitHub Pages Activado!</h1>
+        
+        <div class="status">
+            <h2>✅ Configuración Completada</h2>
+            <p><strong>Estado:</strong> GitHub Pages configurado exitosamente</p>
+            <p><strong>URL:</strong> https://leomos2022.github.io/inferencias/</p>
+            <p><strong>Timestamp:</strong> 2025-10-20 00:22</p>
+        </div>
+        
+        <div class="links">
+            <a href="cartilla-flipbook.html" class="btn">📖 Cartilla Flipbook 3D</a>
+            <a href="cartilla-simple.html" class="btn">📄 Versión Simple</a>
+            <a href="test.html" class="btn">🔧 Test Page</a>
+        </div>
+        
+        <div class="status">
+            <h3>📊 Información del Proyecto</h3>
+            <p><strong>Título:</strong> Cartilla Digital - Inferencias, Heurísticas y Teoría de Juegos</p>
+            <p><strong>Autor:</strong> Leonardo Mosquera Rodríguez</p>
+            <p><strong>Institución:</strong> UNIMINUTO</p>
+            <p><strong>Tipo:</strong> Flipbook 3D Interactivo</p>
+        </div>
+        
+        <div class="status">
+            <h3>🔧 Debug Info</h3>
+            <p>✅ index.html en root del repositorio</p>
+            <p>✅ GitHub Actions workflow configurado</p>
+            <p>✅ GitHub Pages source: GitHub Actions</p>
+            <p>✅ Repositorio público habilitado</p>
+        </div>
     </div>
     
     <script>
-        console.log('GitHub Pages Test - index.html cargado correctamente');
+        console.log('🚀 GitHub Pages - Sitio cargado correctamente');
+        console.log('📍 URL: https://leomos2022.github.io/inferencias/');
         
-        // Auto-redirect después de 5 segundos
-        setTimeout(() => {
-            window.location.href = 'cartilla-flipbook.html';
-        }, 5000);
+        // Auto-redirect a la cartilla después de 8 segundos
+        let countdown = 8;
+        const timer = setInterval(() => {
+            console.log(`Redirigiendo a cartilla en ${countdown} segundos...`);
+            countdown--;
+            if (countdown <= 0) {
+                clearInterval(timer);
+                window.location.href = 'cartilla-flipbook.html';
+            }
+        }, 1000);
     </script>
 </body>
 </html>
