@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada - Cartilla Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404 - Página no encontrada</h1>
+        <p>La página que buscas no está disponible.</p>
+        <p>Te redirigimos a la cartilla digital:</p>
+        <a href="/inferencias_cartilla_digital/" class="btn">Ir a la Cartilla</a>
+        <a href="/inferencias_cartilla_digital/cartilla-flipbook.html" class="btn">Versión Interactiva</a>
+    </div>
+    
+    <script>
+        // Redirección automática después de 3 segundos
+        setTimeout(() => {
+            window.location.href = '/inferencias_cartilla_digital/';
+        }, 3000);
+    </script>
+</body>
+</html>

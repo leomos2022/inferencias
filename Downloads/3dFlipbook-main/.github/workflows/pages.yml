@@ -25,6 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
+      - name: List files for debugging
+        run: |
+          echo "Files in root directory:"
+          ls -la
+          echo "HTML files:"
+          find . -name "*.html" -type f
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
