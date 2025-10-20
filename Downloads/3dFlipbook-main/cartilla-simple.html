@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartilla Digital - Heurísticas y Teoría de Juegos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-title {
+            color: #ecf0f1;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn.active {
+            background: #f39c12;
+        }
+        
+        .page-container {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .page-content {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+            min-height: 600px;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .page-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(44, 62, 80, 0.9);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .control-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .control-btn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        .control-btn:disabled {
+            background: #7f8c8d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .page-counter {
+            background: #f39c12;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        .welcome-screen {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .welcome-screen h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .welcome-screen p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .start-btn {
+            background: #f39c12;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .start-btn:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .quick-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44, 62, 80, 0.9);
+            padding: 15px 10px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quick-nav-item {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #7f8c8d;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-nav-item.active {
+            background: #f39c12;
+            transform: scale(1.3);
+        }
+        
+        .quick-nav-item:hover {
+            background: #3498db;
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .quick-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <div class="nav-container">
+            <div class="nav-title">📚 Cartilla Digital IA</div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="showWelcome()">🏠 Inicio</button>
+                <button class="nav-btn" onclick="goToPage(0)">📄 Portada</button>
+                <button class="nav-btn" onclick="goToPage(3)">🚀 Introducción</button>
+                <button class="nav-btn" onclick="goToPage(6)">💻 Ejercicio</button>
+                <button class="nav-btn" onclick="goToPage(8)">🎯 Conclusiones</button>
+                <button class="nav-btn" onclick="window.open('index-backup.html', '_blank')">🎮 Flipbook 3D</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="quick-nav" id="quickNav">
+        <!-- Se llena dinámicamente -->
+    </div>
+
+    <div class="page-container">
+        <div class="page-content">
+            <div class="page active" id="welcome">
+                <div class="welcome-screen">
+                    <h1>🧠 Heurísticas y Funciones de Evaluación en Teoría de Juegos</h1>
+                    <p>Una cartilla digital interactiva sobre Inteligencia Artificial y Sistemas Inteligentes</p>
+                    <p><strong>Curso:</strong> Inteligencia Artificial y Sistemas Inteligentes<br>
+                    <strong>Autor:</strong> [Tu Nombre Completo]<br>
+                    <strong>Fecha:</strong> Octubre 2025</p>
+                    <button class="start-btn" onclick="startReading()">
+                        📖 Comenzar Lectura
+                    </button>
+                </div>
+            </div>
+            
+            <div class="page" id="page0">
+                <iframe src="cartilla/portada.html"></iframe>
+            </div>
+            
+            <div class="page" id="page1">
+                <iframe src="cartilla/pagina-legal.html"></iframe>
+            </div>
+            
+            <div class="page" id="page2">
+                <iframe src="cartilla/tabla-contenido.html"></iframe>
+            </div>
+            
+            <div class="page" id="page3">
+                <iframe src="cartilla/introduccion.html"></iframe>
+            </div>
+            
+            <div class="page" id="page4">
+                <iframe src="cartilla/heuristicas.html"></iframe>
+            </div>
+            
+            <div class="page" id="page5">
+                <iframe src="cartilla/teoria-juegos.html"></iframe>
+            </div>
+            
+            <div class="page" id="page6">
+                <iframe src="cartilla/ejercicio-practico.html"></iframe>
+            </div>
+            
+            <div class="page" id="page7">
+                <iframe src="cartilla/analisis-comportamiento.html"></iframe>
+            </div>
+            
+            <div class="page" id="page8">
+                <iframe src="cartilla/conclusiones.html"></iframe>
+            </div>
+            
+            <div class="page" id="page9">
+                <iframe src="cartilla/referencias.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-controls">
+        <button class="control-btn" id="prevBtn" onclick="previousPage()">
+            ◀️ Anterior
+        </button>
+        <div class="page-counter">
+            <span id="pageCounter">Página 1 de 10</span>
+        </div>
+        <button class="control-btn" id="nextBtn" onclick="nextPage()">
+            Siguiente ▶️
+        </button>
+    </div>
+
+    <script>
+        let currentPage = -1; // -1 for welcome screen
+        const totalPages = 10;
+        
+        function initializeQuickNav() {
+            const quickNav = document.getElementById('quickNav');
+            for (let i = 0; i < totalPages; i++) {
+                const item = document.createElement('div');
+                item.className = 'quick-nav-item';
+                item.onclick = () => goToPage(i);
+                item.title = `Página ${i + 1}`;
+                quickNav.appendChild(item);
+            }
+        }
+        
+        function updateUI() {
+            // Update page visibility
+            document.querySelectorAll('.page').forEach((page, index) => {
+                if (index === 0) { // welcome screen
+                    page.classList.toggle('active', currentPage === -1);
+                } else {
+                    page.classList.toggle('active', index - 1 === currentPage);
+                }
+            });
+            
+            // Update quick navigation
+            document.querySelectorAll('.quick-nav-item').forEach((item, index) => {
+                item.classList.toggle('active', index === currentPage);
+            });
+            
+            // Update controls
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageCounter = document.getElementById('pageCounter');
+            
+            if (currentPage === -1) {
+                prevBtn.style.display = 'none';
+                nextBtn.textContent = '📖 Comenzar';
+                pageCounter.textContent = 'Bienvenido';
+            } else {
+                prevBtn.style.display = 'flex';
+                nextBtn.textContent = currentPage === totalPages - 1 ? 'Finalizar 🎯' : 'Siguiente ▶️';
+                pageCounter.textContent = `Página ${currentPage + 1} de ${totalPages}`;
+                
+                prevBtn.disabled = currentPage === 0;
+                nextBtn.disabled = false;
+            }
+        }
+        
+        function showWelcome() {
+            currentPage = -1;
+            updateUI();
+        }
+        
+        function startReading() {
+            goToPage(0);
+        }
+        
+        function goToPage(pageNum) {
+            if (pageNum >= 0 && pageNum < totalPages) {
+                currentPage = pageNum;
+                updateUI();
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        function nextPage() {
+            if (currentPage === -1) {
+                startReading();
+            } else if (currentPage < totalPages - 1) {
+                goToPage(currentPage + 1);
+            } else {
+                // End of cartilla
+                alert('🎉 ¡Has completado la cartilla! Esperamos que hayas disfrutado aprendiendo sobre heurísticas y teoría de juegos en IA.');
+            }
+        }
+        
+        function previousPage() {
+            if (currentPage > 0) {
+                goToPage(currentPage - 1);
+            } else if (currentPage === 0) {
+                showWelcome();
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                previousPage();
+            } else if (e.key === 'ArrowRight') {
+                nextPage();
+            } else if (e.key >= '1' && e.key <= '9') {
+                const pageNum = parseInt(e.key) - 1;
+                if (pageNum < totalPages) {
+                    goToPage(pageNum);
+                }
+            } else if (e.key === '0') {
+                goToPage(9);
+            }
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeQuickNav();
+            updateUI();
+        });
+        
+        // Auto-hide controls on mobile when scrolling
+        let hideControlsTimeout;
+        window.addEventListener('scroll', function() {
+            const controls = document.querySelector('.page-controls');
+            controls.style.opacity = '0.7';
+            
+            clearTimeout(hideControlsTimeout);
+            hideControlsTimeout = setTimeout(() => {
+                controls.style.opacity = '1';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

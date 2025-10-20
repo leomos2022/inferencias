@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 50px;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .intro-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+        
+        .intro-icon {
+            text-align: center;
+            font-size: 4em;
+            margin-bottom: 30px;
+            color: #667eea;
+        }
+        
+        .question-section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            border-left: 5px solid #667eea;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-icon {
+            margin-right: 10px;
+            color: #667eea;
+        }
+        
+        .answer {
+            color: #495057;
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .key-concepts {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .key-concepts h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .concepts-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .concepts-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .concepts-list li:before {
+            content: "🎯";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-container">
+        <div class="intro-icon">🚀</div>
+        <h1>Introducción</h1>
+        
+        <div class="question-section">
+            <div class="question">
+                <span class="question-icon">🎯</span>
+                ¿Cuál es el propósito de la cartilla?
+            </div>
+            <div class="answer">
+                Esta cartilla digital tiene como propósito central <span class="highlight">explorar y analizar las heurísticas y funciones de evaluación</span> como herramientas fundamentales en el desarrollo de sistemas de inteligencia artificial. Busca proporcionar una comprensión profunda de cómo estos mecanismos permiten a los agentes inteligentes tomar decisiones eficientes en espacios de solución complejos, especialmente en el contexto de la teoría de juegos, donde múltiples agentes interactúan estratégicamente.
+            </div>
+        </div>
+        
+        <div class="question-section">
+            <div class="question">
+                <span class="question-icon">👥</span>
+                ¿A quién va dirigida?
+            </div>
+            <div class="answer">
+                Esta cartilla está dirigida principalmente a <span class="highlight">estudiantes de ingeniería y ciencias de la computación</span> que se encuentran explorando el fascinante mundo de la inteligencia artificial. También resulta valiosa para profesionales en formación que buscan comprender los fundamentos teóricos y prácticos de los algoritmos de decisión en IA, así como para educadores que deseen contar con material didáctico estructurado sobre estos temas complejos pero fundamentales.
+            </div>
+        </div>
+        
+        <div class="question-section">
+            <div class="question">
+                <span class="question-icon">📚</span>
+                ¿Cuál es el contenido que va a desarrollar?
+            </div>
+            <div class="answer">
+                El contenido abarca desde <span class="highlight">conceptos fundamentales de heurísticas y funciones de evaluación</span> hasta implementaciones prácticas usando Python. Se desarrollarán los principios de la teoría de juegos aplicada a la IA, se analizarán patrones de comportamiento de agentes inteligentes, y se realizará un ejercicio práctico implementando el algoritmo Minimax en un juego de matchstick. Además, se explorarán las ventajas y limitaciones de diferentes enfoques algorítmicos para la toma de decisiones en sistemas inteligentes.
+            </div>
+        </div>
+        
+        <div class="question-section">
+            <div class="question">
+                <span class="question-icon">⭐</span>
+                ¿Cuál es su importancia?
+            </div>
+            <div class="answer">
+                La importancia de este material radica en que las <span class="highlight">heurísticas y funciones de evaluación constituyen el núcleo</span> de muchos sistemas de IA exitosos en la actualidad. Desde motores de ajedrez hasta sistemas de recomendación, desde vehículos autónomos hasta asistentes virtuales, estos conceptos son fundamentales para crear sistemas que puedan operar eficientemente en entornos complejos y dinámicos. Comprender estos principios es esencial para cualquier profesional que aspire a desarrollar soluciones de IA robustas y efectivas.
+            </div>
+        </div>
+        
+        <div class="key-concepts">
+            <h3>🔑 Conceptos Clave que Exploraremos</h3>
+            <ul class="concepts-list">
+                <li>Heurísticas como guías de búsqueda en espacios complejos</li>
+                <li>Funciones de evaluación para estimar la calidad de soluciones</li>
+                <li>Algoritmo Minimax y técnicas de poda</li>
+                <li>Teoría de juegos aplicada a sistemas multiagente</li>
+                <li>Análisis de patrones de comportamiento en IA</li>
+                <li>Implementación práctica con Python</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

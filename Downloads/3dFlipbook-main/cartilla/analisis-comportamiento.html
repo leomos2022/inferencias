@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Comportamiento de IA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #9b59b6;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #9b59b6;
+        }
+        
+        h3 {
+            color: #9b59b6;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.1em;
+        }
+        
+        .insight-box h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .behavior-pattern {
+            background: #f8f4ff;
+            border: 2px solid #9b59b6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .behavior-pattern h4 {
+            color: #6c3483;
+            margin-top: 0;
+        }
+        
+        .decision-tree {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            text-align: center;
+        }
+        
+        .adaptation-example {
+            background: #e8f6f3;
+            border: 2px solid #16a085;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .adaptation-example h4 {
+            color: #0e6251;
+            margin-top: 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #d2b4de 0%, #e8daef 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .analysis-card {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: #9b59b6;
+        }
+        
+        .analysis-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .inference-process {
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .inference-process h4 {
+            color: #8b4513;
+            margin-top: 0;
+        }
+        
+        .feedback-loop {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .feedback-loop h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <h1>🔬 Análisis de Comportamiento de IA</h1>
+        
+        <div class="insight-box">
+            <h3>🧠 Inferencia de Patrones de Comportamiento</h3>
+            <p>El análisis del comportamiento de sistemas de IA implica la <strong>identificación y caracterización de patrones emergentes</strong> en las decisiones tomadas por agentes inteligentes, revelando las estrategias subyacentes y los mecanismos de adaptación que permiten a estos sistemas responder eficientemente a entornos complejos y dinámicos.</p>
+        </div>
+        
+        <h2>🔍 Métodos de Inferencia Comportamental</h2>
+        
+        <div class="analysis-grid">
+            <div class="analysis-card">
+                <div class="analysis-icon">📊</div>
+                <h4>Análisis Estadístico</h4>
+                <p>Examen de distribuciones de decisiones, frecuencias de acciones y correlaciones entre estados-acciones.</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="analysis-icon">🌳</div>
+                <h4>Visualización de Árboles</h4>
+                <p>Representación gráfica de procesos de decisión y caminos de búsqueda seguidos por el agente.</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="analysis-icon">🔄</div>
+                <h4>Análisis Temporal</h4>
+                <p>Estudio de la evolución del comportamiento a lo largo del tiempo y adaptaciones dinámicas.</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="analysis-icon">🎯</div>
+                <h4>Evaluación de Objetivos</h4>
+                <p>Medición del grado de optimización y cumplimiento de objetivos específicos.</p>
+            </div>
+        </div>
+        
+        <h2>🎮 Patrones Emergentes en Juegos</h2>
+        
+        <div class="behavior-pattern">
+            <h4>🔢 Patrón de Módulo Matemático</h4>
+            <p>En el juego Matchstick, el agente IA descubre y aplica consistentemente la regla matemática del <span class="highlight">módulo 4</span>, demostrando capacidad de abstracción y generalización de patrones numéricos complejos.</p>
+            
+            <div class="decision-tree">
+                <strong>Árbol de Decisión Simplificado:</strong><br><br>
+                Estado: N palos<br>
+                ↓<br>
+                Evalúa: N % 4 == 0?<br>
+                ↙ Sí ↘ No<br>
+                Posición Ganadora | Buscar movimiento óptimo<br>
+                ↓<br>
+                Mover para crear múltiplo de 4
+            </div>
+        </div>
+        
+        <div class="behavior-pattern">
+            <h4>⚡ Patrón de Optimización Temporal</h4>
+            <p>Los sistemas de IA desarrollan <span class="highlight">estrategias de poda eficientes</span>, eliminando ramas del árbol de búsqueda que no pueden mejorar el resultado, demostrando aprendizaje de eficiencia computacional.</p>
+        </div>
+        
+        <h2>🧩 Procesos de Adaptación</h2>
+        
+        <div class="adaptation-example">
+            <h4>🔄 Adaptación Basada en Experiencia</h4>
+            <p>Los sistemas de IA modernos <span class="highlight">modifican sus estrategias</span> basándose en resultados anteriores:</p>
+            <ul>
+                <li><strong>Refuerzo positivo:</strong> Incremento de probabilidad para acciones exitosas</li>
+                <li><strong>Ajuste de pesos:</strong> Modificación de funciones de evaluación</li>
+                <li><strong>Exploración-explotación:</strong> Balance entre probar nuevas estrategias y usar conocidas</li>
+                <li><strong>Transferencia de aprendizaje:</strong> Aplicación de conocimiento a nuevos dominios</li>
+            </ul>
+        </div>
+        
+        <h2>🔗 Mecanismos de Retroalimentación</h2>
+        
+        <div class="feedback-loop">
+            <h4>📈 Ciclo de Mejora Continua</h4>
+            <p>Los sistemas de IA implementan <span class="highlight">bucles de retroalimentación</span> que permiten refinamiento continuo:</p>
+            
+            <ol>
+                <li><strong>Observación:</strong> Recolección de datos sobre resultados de decisiones</li>
+                <li><strong>Análisis:</strong> Evaluación de efectividad de estrategias aplicadas</li>
+                <li><strong>Ajuste:</strong> Modificación de parámetros y heurísticas</li>
+                <li><strong>Validación:</strong> Prueba de nuevas estrategias en entornos controlados</li>
+                <li><strong>Implementación:</strong> Despliegue de mejoras en el sistema principal</li>
+            </ol>
+        </div>
+        
+        <h2>🎯 Inferencias Específicas del Ejercicio</h2>
+        
+        <div class="inference-process">
+            <h4>🔍 Observaciones Clave del Juego Matchstick</h4>
+            
+            <h5>1. Consistencia Estratégica</h5>
+            <p>El agente IA muestra <span class="highlight">100% de consistencia</span> en la aplicación de la estrategia óptima, nunca desviándose del patrón matemático identificado.</p>
+            
+            <h5>2. Reconocimiento de Patrones</h5>
+            <p>Capacidad para <span class="highlight">abstraer la regla subyacente</span> (módulo 4) sin programación explícita de esta regla, emergiendo del proceso de búsqueda exhaustiva.</p>
+            
+            <h5>3. Predicción Perfecta</h5>
+            <p>La IA puede <span class="highlight">predecir el resultado del juego</span> desde cualquier estado inicial, demostrando comprensión completa de la dinámica del problema.</p>
+            
+            <h5>4. Eficiencia Computacional</h5>
+            <p>Una vez identificado el patrón, el sistema puede <span class="highlight">reducir búsquedas complejas a evaluaciones simples</span>, mejorando dramáticamente el rendimiento.</p>
+        </div>
+        
+        <h2>🌟 Aplicaciones en Sistemas Reales</h2>
+        
+        <h3>Sistemas de Recomendación</h3>
+        <div class="behavior-pattern">
+            <h4>📱 Análisis de Preferencias</h4>
+            <p>Los sistemas como Netflix o Spotify <span class="highlight">infieren patrones de comportamiento</span> del usuario analizando historial de visualización, tiempo de sesión, y patrones de abandono para predecir contenido de interés.</p>
+        </div>
+        
+        <h3>Vehículos Autónomos</h3>
+        <div class="behavior-pattern">
+            <h4>🚗 Adaptación a Condiciones</h4>
+            <p>Los vehículos autónomos <span class="highlight">adaptan su comportamiento de conducción</span> basándose en patrones de tráfico, condiciones climáticas, y comportamiento de otros conductores, desarrollando "estilos de conducción" específicos.</p>
+        </div>
+        
+        <h3>Trading Algorítmico</h3>
+        <div class="behavior-pattern">
+            <h4>💹 Detección de Oportunidades</h4>
+            <p>Los algoritmos de trading <span class="highlight">identifican patrones de mercado</span> y adaptan estrategias en tiempo real, modificando parámetros de riesgo y oportunidad según condiciones cambiantes.</p>
+        </div>
+        
+        <h2>🔮 Predicción y Anticipación</h2>
+        
+        <div class="insight-box">
+            <h3>🎯 Capacidades Predictivas</h3>
+            <p>Los sistemas de IA desarrollan <strong>capacidades predictivas sofisticadas</strong> que van más allá de la simple reacción, permitiendo anticipar escenarios futuros y preparar respuestas proactivas. Esta capacidad emerge de la combinación de análisis histórico, reconocimiento de patrones, y modelado probabilístico.</p>
+        </div>
+        
+        <h3>Factores Clave en la Predicción</h3>
+        <ul>
+            <li><strong>Memoria episódica:</strong> Capacidad de recordar secuencias específicas de eventos</li>
+            <li><strong>Generalización:</strong> Aplicación de patrones aprendidos a nuevas situaciones</li>
+            <li><strong>Incertidumbre cuantificada:</strong> Medición y gestión de la confianza en predicciones</li>
+            <li><strong>Adaptación temporal:</strong> Ajuste a cambios en patrones subyacentes</li>
+        </ul>
+        
+        <h2>📊 Métricas de Evaluación Comportamental</h2>
+        
+        <div class="analysis-grid">
+            <div class="analysis-card">
+                <div class="analysis-icon">🎯</div>
+                <h4>Precisión</h4>
+                <p>Porcentaje de decisiones correctas tomadas por el sistema</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="analysis-icon">⚡</div>
+                <h4>Eficiencia</h4>
+                <p>Relación entre calidad de decisiones y recursos computacionales utilizados</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="analysis-icon">🔄</div>
+                <h4>Adaptabilidad</h4>
+                <p>Velocidad y efectividad de ajuste a nuevas condiciones</p>
+            </div>
+            
+            <div class="analysis-card">
+                <div class="analysis-icon">🎲</div>
+                <h4>Robustez</h4>
+                <p>Mantenimiento de rendimiento bajo condiciones adversas</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

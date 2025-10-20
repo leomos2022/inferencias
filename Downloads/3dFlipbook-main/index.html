@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cartilla Digital - Heurísticas y Teoría de Juegos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <style type="text/css">
+      body {
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 95vh;
+        width: 95%;
+        margin: 20px auto;
+        border: 2px solid red;
+        box-shadow: 0 0 5px red;
+      }
+      .fullscreen {
+        background-color: #333;
+      }
+      .examples {
+        position: relative;
+      }
+      .examples div {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+        font-size: 20px;
+      }
+      .examples a {
+        color: #ccc;
+        text-decoration: none;
+        padding: 0 10px;
+      }
+      .examples a:hover {
+        color: #fff;
+      }
+    </style>
+
+    <div class="examples">
+      <div>
+        <a href="cartilla-simple.html">📱 Versión Simple</a> 
+        <a href="example1.html">Lightbox</a>
+        <a href="example2.html">Más Ejemplos</a>
+        <br><br>
+        <span style="color: #27ae60; font-size: 24px; font-weight: bold;">
+          📚 Cartilla Digital: Heurísticas y Funciones de Evaluación en Teoría de Juegos
+        </span>
+        <br>
+        <span style="color: #ecf0f1; font-size: 14px;">
+          Si el flipbook 3D tarda en cargar, prueba la <a href="cartilla-simple.html" style="color: #f39c12;">versión simple</a>
+        </span>
+      </div>
+    </div>
+
+    <div class="container" id="container">
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/pdf.min.js"></script>
+
+    <script src="js/3dflipbook.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        // Cartilla Digital de Heurísticas y Teoría de Juegos
+        function cartillaPageCallback(n) {
+          const pages = [
+            'cartilla/portada.html',
+            'cartilla/pagina-legal.html', 
+            'cartilla/tabla-contenido.html',
+            'cartilla/introduccion.html',
+            'cartilla/heuristicas.html',
+            'cartilla/teoria-juegos.html',
+            'cartilla/ejercicio-practico.html',
+            'cartilla/analisis-comportamiento.html',
+            'cartilla/conclusiones.html',
+            'cartilla/referencias.html'
+          ];
+          
+          return {
+            type: 'html',
+            src: pages[n] || pages[0],
+            interactive: true
+          };
+        }
+        
+        console.log('Inicializando flipbook...');
+        console.log($('#container'));
+        
+        $('#container').FlipBook({
+          pageCallback: cartillaPageCallback,
+          pages: 10,
+          propertiesCallback: function(props) {
+            props.cover.color = 0x2c3e50;
+            props.cover.padding = 0.002;
+            props.page.depth *= 1.2;
+            return props;
+          },
+          template: {
+            html: 'templates/default-book-view.html',
+            styles: [
+              'css/white-book-view.css'
+            ],
+            links: [
+              {
+                rel: 'stylesheet',
+                href: 'css/font-awesome.min.css'
+              }
+            ],
+            script: 'js/default-book-view.js'
+          }
+        });
+      });
+
+      // $('#container').FlipBook({
+      //   pageCallback: theKingIsBlackPageCallback,
+      //   pages: 40,
+      //   propertiesCallback: function(props) {
+      //     props.cssLayersLoader = function(n, clb) {// n - page number
+      //       clb([{
+      //         css: '.hd {margin-top: 200px;background-color: red;}',
+      //         html: '<h1 class="hd">CSS3 Layer - Hello</h1>',
+      //         js: function (jContainer) {
+      //           console.log(jContainer);
+      //           return {
+      //             hide: function() {console.log('hide');},
+      //             hidden: function() {console.log('hidden');},
+      //             show: function() {console.log('show');},
+      //             shown: function() {console.log('shown');},
+      //             dispose: function() {console.log('dispose');}
+      //           };
+      //         }
+      //       }]);
+      //     };
+      //     props.cover.color = 0x000000;
+      //     return props;
+      //   },
+      //   template: {
+      //     html: 'templates/default-book-view.html',
+      //     styles: [
+      //       'css/short-white-book-view.css'
+      //     ],
+      //     links: [
+      //       {
+      //         rel: 'stylesheet',
+      //         href: 'css/font-awesome.min.css'
+      //       }
+      //     ],
+      //     script: 'js/default-book-view.js',
+      //     sounds: {
+      //       startFlip: 'sounds/start-flip.mp3',
+      //       endFlip: 'sounds/end-flip.mp3'
+      //     }
+      //   }
+      // });
+      // // }
+
+      // // Sample 2 {
+      // $('#container').FlipBook({
+      //   pdf: 'books/pdf/CondoLiving.pdf',
+      //   pages: 5,
+      //   template: {
+      //     html: 'templates/default-book-view.html',
+      //     styles: [
+      //       'css/white-book-view.css'
+      //     ],
+      //     links: [
+      //       {
+      //         rel: 'stylesheet',
+      //         href: 'css/font-awesome.min.css'
+      //       }
+      //     ],
+      //     script: 'js/default-book-view.js'
+      //   }
+      // });
+      // // }
+
+      // // Sample 3 {
+      // $('#container').FlipBook({
+      //   pdf: 'books/pdf/TheThreeMusketeers.pdf',
+      //   propertiesCallback: function(props) {
+      //     props.page.depth /= 2.5;
+      //     props.cover.padding = 0.002;
+      //     return props;
+      //   },
+      //   template: {
+      //     html: 'templates/default-book-view.html',
+      //     styles: [
+      //       'css/short-black-book-view.css'
+      //     ],
+      //     links: [
+      //       {
+      //         rel: 'stylesheet',
+      //         href: 'css/font-awesome.min.css'
+      //       }
+      //     ],
+      //     script: 'js/default-book-view.js'
+      //   }
+      // });
+      // // }
+
+      // // Sample 4 {
+      // function preview(n) {
+      //   return {
+      //     type: 'html',
+      //     src: 'books/html/preview/'+(n%3+1)+'.html',
+      //     interactive: true
+      //   };
+      // }
+      //
+      // $('#container').FlipBook({
+      //   pageCallback: preview,
+      //   pages: 20,
+      //   propertiesCallback: function(props) {
+      //     props.sheet.color = 0x008080;
+      //     props.cover.padding = 0.002;
+      //     return props;
+      //   },
+      //   template: {
+      //     html: 'templates/default-book-view.html',
+      //     styles: [
+      //       'css/black-book-view.css'
+      //     ],
+      //     links: [
+      //       {
+      //         rel: 'stylesheet',
+      //         href: 'css/font-awesome.min.css'
+      //       }
+      //     ],
+      //     script: 'js/default-book-view.js'
+      //   }
+      // });
+      // // }
+
+    </script>
+
+  </body>
+</html>

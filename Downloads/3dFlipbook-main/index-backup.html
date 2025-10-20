@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cartilla Digital - Heurísticas y Teoría de Juegos</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <style type="text/css">
+      body {
+        background-color: #2c3e50;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        height: 95vh;
+        width: 95%;
+        margin: 20px auto;
+        border: 2px solid #3498db;
+        box-shadow: 0 0 15px #3498db;
+        border-radius: 10px;
+      }
+      .fullscreen {
+        background-color: #2c3e50;
+      }
+      .examples {
+        position: relative;
+        z-index: 1000;
+      }
+      .examples div {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 18px;
+        background: rgba(52, 152, 219, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        margin: 10px;
+      }
+      .examples a {
+        color: #ecf0f1;
+        text-decoration: none;
+        padding: 8px 15px;
+        background: #34495e;
+        border-radius: 5px;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+      }
+      .examples a:hover {
+        background: #3498db;
+        transform: translateY(-2px);
+      }
+      .title-text {
+        color: #f39c12;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+      .loading-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ecf0f1;
+        font-size: 18px;
+        z-index: 500;
+      }
+    </style>
+
+    <div class="examples">
+      <div>
+        <a href="example2.html">Ejemplos adicionales</a> 
+        <a href="example1.html">Lightbox</a>
+        <a href="cartilla-simple.html">Ver Cartilla Simple</a>
+        <br>
+        <div class="title-text">
+          📚 Cartilla Digital: Heurísticas y Funciones de Evaluación en Teoría de Juegos
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="container">
+      <div class="loading-message" id="loadingMsg">
+        🔄 Cargando cartilla 3D... Si tarda demasiado, prueba la <a href="cartilla-simple.html" style="color: #f39c12;">versión simple</a>
+      </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/pdf.min.js"></script>
+    <script src="js/3dflipbook.min.js"></script>
+    
+    <script type="text/javascript">
+      // Función para crear páginas de la cartilla
+      function cartillaPageCallback(n) {
+        const pages = [
+          'cartilla/portada.html',
+          'cartilla/pagina-legal.html', 
+          'cartilla/tabla-contenido.html',
+          'cartilla/introduccion.html',
+          'cartilla/heuristicas.html',
+          'cartilla/teoria-juegos.html',
+          'cartilla/ejercicio-practico.html',
+          'cartilla/analisis-comportamiento.html',
+          'cartilla/conclusiones.html',
+          'cartilla/referencias.html'
+        ];
+        
+        return {
+          type: 'html',
+          src: pages[n] || pages[0],
+          interactive: true
+        };
+      }
+      
+      // Configuración del flipbook
+      $(document).ready(function() {
+        console.log('Iniciando flipbook...');
+        
+        try {
+          $('#container').FlipBook({
+            pageCallback: cartillaPageCallback,
+            pages: 10,
+            propertiesCallback: function(props) {
+              props.cover.color = 0x2c3e50;
+              props.cover.padding = 0.002;
+              props.page.depth *= 1.2;
+              props.page.color = 0xffffff;
+              return props;
+            },
+            template: {
+              html: 'templates/default-book-view.html',
+              styles: [
+                'css/white-book-view.css'
+              ],
+              links: [
+                {
+                  rel: 'stylesheet',
+                  href: 'css/font-awesome.min.css'
+                }
+              ],
+              script: 'js/default-book-view.js'
+            },
+            loadingCallback: function() {
+              $('#loadingMsg').hide();
+            }
+          });
+          
+          // Ocultar mensaje de carga después de 3 segundos
+          setTimeout(function() {
+            $('#loadingMsg').fadeOut();
+          }, 3000);
+          
+        } catch(error) {
+          console.error('Error al cargar flipbook:', error);
+          $('#loadingMsg').html('❌ Error al cargar. <a href="cartilla-simple.html" style="color: #f39c12;">Usar versión simple</a>');
+        }
+      });
+    </script>
+
+  </body>
+</html>

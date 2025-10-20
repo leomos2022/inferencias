@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Contenido</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 50px;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .toc-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-item {
+            margin-bottom: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .toc-item:last-child {
+            border-bottom: none;
+        }
+        
+        .chapter-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .chapter-title {
+            flex-grow: 1;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .page-number {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .chapter-description {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .section-title {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .intro-text {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 40px;
+            font-style: italic;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toc-container">
+        <h1>📚 Tabla de Contenido</h1>
+        
+        <div class="intro-text">
+            Estructura y organización de la cartilla digital sobre Heurísticas y Funciones de Evaluación en Teoría de Juegos
+        </div>
+        
+        <ul class="toc-list">
+            <li class="toc-item">
+                <div class="chapter-number">1</div>
+                <div class="section-title">
+                    <div class="chapter-title">Portada</div>
+                    <div class="chapter-description">Presentación visual y datos identificativos</div>
+                </div>
+                <div class="page-number">1</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">2</div>
+                <div class="section-title">
+                    <div class="chapter-title">Página Legal</div>
+                    <div class="chapter-description">Información de autoría y derechos</div>
+                </div>
+                <div class="page-number">2</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">3</div>
+                <div class="section-title">
+                    <div class="chapter-title">Tabla de Contenido</div>
+                    <div class="chapter-description">Estructura y organización del material</div>
+                </div>
+                <div class="page-number">3</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">4</div>
+                <div class="section-title">
+                    <div class="chapter-title">Introducción</div>
+                    <div class="chapter-description">Propósito, audiencia e importancia del tema</div>
+                </div>
+                <div class="page-number">4</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">5</div>
+                <div class="section-title">
+                    <div class="chapter-title">Heurísticas y Funciones de Evaluación</div>
+                    <div class="chapter-description">Conceptos fundamentales y aplicaciones</div>
+                </div>
+                <div class="page-number">5</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">6</div>
+                <div class="section-title">
+                    <div class="chapter-title">Teoría de Juegos en IA</div>
+                    <div class="chapter-description">Interacciones estratégicas entre agentes</div>
+                </div>
+                <div class="page-number">6</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">7</div>
+                <div class="section-title">
+                    <div class="chapter-title">Ejercicio Práctico: Juego Matchstick</div>
+                    <div class="chapter-description">Implementación y análisis con Python</div>
+                </div>
+                <div class="page-number">7</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">8</div>
+                <div class="section-title">
+                    <div class="chapter-title">Análisis de Comportamiento de IA</div>
+                    <div class="chapter-description">Patrones e inferencias de decisiones</div>
+                </div>
+                <div class="page-number">8</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">9</div>
+                <div class="section-title">
+                    <div class="chapter-title">Conclusiones</div>
+                    <div class="chapter-description">Síntesis y reflexiones personales</div>
+                </div>
+                <div class="page-number">9</div>
+            </li>
+            
+            <li class="toc-item">
+                <div class="chapter-number">10</div>
+                <div class="section-title">
+                    <div class="chapter-title">Referencias Bibliográficas</div>
+                    <div class="chapter-description">Fuentes consultadas en formato APA</div>
+                </div>
+                <div class="page-number">10</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

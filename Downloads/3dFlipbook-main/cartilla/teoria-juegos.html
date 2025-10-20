@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoría de Juegos en IA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        h3 {
+            color: #e74c3c;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .definition-box {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.1em;
+        }
+        
+        .definition-box h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .algorithm-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .algorithm-box h4 {
+            color: #856404;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .minimax-tree {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: monospace;
+        }
+        
+        .game-matrix {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .game-matrix th, .game-matrix td {
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .game-matrix th {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .strategy-card {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: #e74c3c;
+        }
+        
+        .strategy-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .code-snippet {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .interaction-example {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .interaction-example h4 {
+            color: #2980b9;
+            margin-top: 0;
+        }
+        
+        .equilibrium-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .equilibrium-box h4 {
+            color: #155724;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <h1>🎲 Teoría de Juegos en Inteligencia Artificial</h1>
+        
+        <div class="definition-box">
+            <h3>🎯 ¿Qué es la Teoría de Juegos?</h3>
+            <p>La <strong>teoría de juegos</strong> es un marco matemático para analizar situaciones donde múltiples agentes toman decisiones que afectan no solo su propio resultado, sino también el de otros participantes. En IA, proporciona herramientas fundamentales para diseñar agentes que pueden interactuar estratégicamente en entornos multiagente.</p>
+        </div>
+        
+        <h2>🤝 Interacciones Estratégicas entre Agentes</h2>
+        
+        <p>En los sistemas de inteligencia artificial modernos, <span class="highlight">múltiples agentes inteligentes</span> deben coexistir y tomar decisiones en el mismo entorno. La teoría de juegos proporciona el marco teórico para entender y predecir el comportamiento emergente de estos sistemas complejos.</p>
+        
+        <h3>Elementos Fundamentales de un Juego</h3>
+        
+        <div class="strategy-grid">
+            <div class="strategy-card">
+                <div class="strategy-icon">👥</div>
+                <h4>Jugadores</h4>
+                <p>Los agentes inteligentes que toman decisiones. Pueden ser algoritmos, robots, o sistemas de IA con objetivos específicos.</p>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-icon">🎯</div>
+                <h4>Estrategias</h4>
+                <p>El conjunto de acciones disponibles para cada jugador. Define el espacio de decisiones posibles.</p>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-icon">🏆</div>
+                <h4>Pagos</h4>
+                <p>Los resultados o recompensas que recibe cada jugador según las estrategias elegidas por todos los participantes.</p>
+            </div>
+            
+            <div class="strategy-card">
+                <div class="strategy-icon">📊</div>
+                <h4>Información</h4>
+                <p>Lo que cada jugador conoce sobre el estado del juego, las estrategias de otros, y el historial de jugadas.</p>
+            </div>
+        </div>
+        
+        <h2>🧠 El Algoritmo Minimax</h2>
+        
+        <div class="algorithm-box">
+            <h4>🔍 Principio del Minimax</h4>
+            <p>El algoritmo Minimax es fundamental en juegos de suma cero con información perfecta. Cada jugador asume que su oponente jugará de manera óptima, <span class="highlight">minimizando las ganancias del jugador actual</span> mientras <span class="highlight">maximiza las propias</span>.</p>
+        </div>
+        
+        <h3>Funcionamiento del Algoritmo</h3>
+        
+        <div class="code-snippet">
+def minimax(estado, profundidad, es_maximizador):
+    if profundidad == 0 or es_terminal(estado):
+        return evaluar(estado)
+    
+    if es_maximizador:
+        mejor_valor = -infinito
+        for hijo in generar_hijos(estado):
+            valor = minimax(hijo, profundidad-1, False)
+            mejor_valor = max(mejor_valor, valor)
+        return mejor_valor
+    else:
+        mejor_valor = infinito
+        for hijo in generar_hijos(estado):
+            valor = minimax(hijo, profundidad-1, True)
+            mejor_valor = min(mejor_valor, valor)
+        return mejor_valor</div>
+        
+        <div class="minimax-tree">
+            <h4>🌳 Árbol de Decisión Minimax</h4>
+            <pre>
+                    MAX
+                   /   \
+                 MIN   MIN
+                / |     | \
+               3  5     2  8
+            </pre>
+            <p><strong>Resultado:</strong> MAX elige la rama izquierda (valor 5)</p>
+        </div>
+        
+        <h2>🎮 Aplicaciones en Sistemas de IA</h2>
+        
+        <h3>1. Juegos Competitivos</h3>
+        <div class="interaction-example">
+            <h4>🏁 Ejemplo: Motor de Ajedrez</h4>
+            <p>Los motores de ajedrez modernos como Stockfish utilizan variantes avanzadas de Minimax con:</p>
+            <ul>
+                <li><strong>Poda Alpha-Beta:</strong> Elimina ramas que no pueden mejorar el resultado</li>
+                <li><strong>Búsqueda Quiescente:</strong> Extiende la búsqueda en posiciones tácticamente complejas</li>
+                <li><strong>Tablas de Transposición:</strong> Evita recalcular posiciones ya evaluadas</li>
+            </ul>
+        </div>
+        
+        <h3>2. Sistemas Multiagente Cooperativos</h3>
+        <p>En robótica colaborativa, los agentes deben <span class="highlight">coordinar sus acciones</span> para lograr objetivos comunes, utilizando conceptos de equilibrios cooperativos.</p>
+        
+        <h3>3. Subastas y Mercados Automatizados</h3>
+        <p>Los sistemas de comercio algorítmico utilizan teoría de juegos para <span class="highlight">optimizar estrategias de oferta</span> en mercados financieros automatizados.</p>
+        
+        <h2>⚡ Optimizaciones del Minimax</h2>
+        
+        <h3>Poda Alpha-Beta</h3>
+        <div class="algorithm-box">
+            <h4>✂️ Reducción del Espacio de Búsqueda</h4>
+            <p>La poda Alpha-Beta puede reducir el factor de ramificación efectivo de b a √b, <span class="highlight">duplicando efectivamente la profundidad de búsqueda</span> alcanzable en el mismo tiempo.</p>
+        </div>
+        
+        <div class="code-snippet">
+def minimax_alpha_beta(estado, profundidad, alpha, beta, es_max):
+    if profundidad == 0 or es_terminal(estado):
+        return evaluar(estado)
+    
+    if es_max:
+        for hijo in generar_hijos(estado):
+            alpha = max(alpha, minimax_alpha_beta(hijo, prof-1, alpha, beta, False))
+            if beta <= alpha:
+                break  # Poda Beta
+        return alpha
+    else:
+        for hijo in generar_hijos(estado):
+            beta = min(beta, minimax_alpha_beta(hijo, prof-1, alpha, beta, True))
+            if beta <= alpha:
+                break  # Poda Alpha
+        return beta</div>
+        
+        <h2>🎯 Equilibrios en Sistemas de IA</h2>
+        
+        <div class="equilibrium-box">
+            <h4>🔄 Equilibrio de Nash</h4>
+            <p>En un sistema multiagente, un <strong>equilibrio de Nash</strong> representa un estado donde ningún agente puede mejorar unilateralmente su resultado cambiando su estrategia, asumiendo que los demás mantienen las suyas.</p>
+        </div>
+        
+        <h3>Ejemplo: Dilema del Prisionero en IA</h3>
+        
+        <table class="game-matrix">
+            <tr>
+                <th></th>
+                <th>Cooperar</th>
+                <th>Defeccionar</th>
+            </tr>
+            <tr>
+                <th>Cooperar</th>
+                <td>3, 3</td>
+                <td>0, 5</td>
+            </tr>
+            <tr>
+                <th>Defeccionar</th>
+                <td>5, 0</td>
+                <td>1, 1</td>
+            </tr>
+        </table>
+        
+        <p>Este juego ilustra cómo <span class="highlight">agentes racionales pueden llegar a resultados subóptimos</span> cuando actúan de manera egoísta, un problema central en el diseño de sistemas multiagente.</p>
+        
+        <h2>🚀 Algoritmos Avanzados</h2>
+        
+        <h3>Monte Carlo Tree Search (MCTS)</h3>
+        <p>Utilizado en AlphaGo, MCTS combina <span class="highlight">búsqueda dirigida con simulaciones aleatorias</span>, permitiendo manejar espacios de búsqueda enormes como el Go.</p>
+        
+        <h3>Algoritmos Evolutivos</h3>
+        <p>En entornos donde el Minimax no es aplicable, los <span class="highlight">algoritmos evolutivos</span> pueden evolucionar estrategias efectivas a través de selección natural simulada.</p>
+        
+        <h2>🔬 Patrones de Comportamiento Observable</h2>
+        
+        <p>La teoría de juegos permite <span class="highlight">predecir y analizar patrones emergentes</span> en sistemas de IA:</p>
+        
+        <ul>
+            <li><strong>Convergencia a equilibrios:</strong> Cómo los agentes aprenden estrategias estables</li>
+            <li><strong>Formación de coaliciones:</strong> Cuando agentes cooperan para objetivos comunes</li>
+            <li><strong>Comportamiento adaptativo:</strong> Cómo los agentes modifican estrategias según la experiencia</li>
+            <li><strong>Emergencia de normas:</strong> Desarrollo de "reglas sociales" en sistemas multiagente</li>
+        </ul>
+    </div>
+</body>
+</html>

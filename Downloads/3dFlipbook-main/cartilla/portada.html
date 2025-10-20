@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada - Heurísticas y Teoría de Juegos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .cover-container {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .main-title {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .ai-icon {
+            font-size: 150px;
+            margin: 40px 0;
+            opacity: 0.8;
+        }
+        
+        .course-info {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .course-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .author-info {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .circle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .circle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 15%;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+        
+        .circle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 15%;
+            left: 20%;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <div class="cover-container">
+        <h1 class="main-title">Heurísticas y Funciones de Evaluación en Teoría de Juegos</h1>
+        <p class="subtitle">Inferencia de Patrones de Comportamiento en Sistemas de Inteligencia Artificial</p>
+        
+        <div class="ai-icon">🤖</div>
+        
+        <div class="course-info">
+            <div class="course-title">Inteligencia Artificial y Sistemas Inteligentes</div>
+            <div class="author-info">
+                <p><strong>Autor:</strong> [Tu Nombre Completo]</p>
+                <p><strong>Fecha:</strong> Octubre 2025</p>
+                <p><strong>Semana:</strong> 6</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heurísticas y Funciones de Evaluación</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 20px;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .definition-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.1em;
+        }
+        
+        .definition-box h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .example-box {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .example-box h4 {
+            color: #2980b9;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .advantages-disadvantages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .advantages, .disadvantages {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .advantages {
+            background: #d4edda;
+            border: 2px solid #28a745;
+        }
+        
+        .disadvantages {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+        }
+        
+        .advantages h4, .disadvantages h4 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .advantages h4 {
+            color: #155724;
+        }
+        
+        .disadvantages h4 {
+            color: #721c24;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .application-card {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .application-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .application-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <h1>🧠 Heurísticas y Funciones de Evaluación</h1>
+        
+        <div class="definition-box">
+            <h3>🎯 Definición de Heurística</h3>
+            <p>Una <strong>heurística</strong> es una técnica o estrategia que permite encontrar soluciones aproximadas a problemas complejos de manera eficiente, cuando los métodos exactos serían computacionalmente prohibitivos. Son "reglas de pulgar" que guían la búsqueda hacia soluciones prometedoras, sacrificando la garantía de optimalidad por eficiencia computacional.</p>
+        </div>
+        
+        <h2>🔍 Características Fundamentales</h2>
+        
+        <h3>1. Eficiencia Computacional</h3>
+        <p>Las heurísticas están diseñadas para <span class="highlight">reducir significativamente el espacio de búsqueda</span>, permitiendo que los algoritmos encuentren soluciones en tiempo razonable incluso para problemas de alta complejidad computacional.</p>
+        
+        <h3>2. Aproximación Inteligente</h3>
+        <p>Aunque no garantizan la solución óptima, las heurísticas bien diseñadas <span class="highlight">guían la búsqueda hacia regiones prometedoras</span> del espacio de soluciones, aumentando significativamente la probabilidad de encontrar buenas soluciones.</p>
+        
+        <h3>3. Dependencia del Dominio</h3>
+        <p>Las heurísticas más efectivas son aquellas que <span class="highlight">aprovechan el conocimiento específico del dominio</span> del problema, incorporando información que los algoritmos generales no pueden capturar.</p>
+        
+        <div class="definition-box">
+            <h3>📊 Funciones de Evaluación</h3>
+            <p>Las <strong>funciones de evaluación</strong> son mecanismos matemáticos que asignan un valor numérico a un estado o solución específica, permitiendo comparar diferentes alternativas y guiar el proceso de búsqueda hacia estados más prometedores.</p>
+        </div>
+        
+        <h2>🎮 Tipos de Heurísticas en IA</h2>
+        
+        <h3>Heurísticas de Búsqueda</h3>
+        <p>Utilizadas en algoritmos como A*, estas heurísticas estiman el costo desde un estado actual hasta el objetivo, permitiendo una búsqueda dirigida y eficiente.</p>
+        
+        <div class="formula-box">
+            f(n) = g(n) + h(n)
+            <br><small>donde g(n) es el costo real y h(n) es la heurística</small>
+        </div>
+        
+        <h3>Heurísticas de Juegos</h3>
+        <p>En teoría de juegos, las heurísticas evalúan la <span class="highlight">"bondad" de una posición</span> para un jugador específico, considerando factores como control territorial, ventajas materiales, o posición estratégica.</p>
+        
+        <div class="example-box">
+            <h4>🔍 Ejemplo: Heurística en Ajedrez</h4>
+            <p>En ajedrez, una función de evaluación simple podría considerar:</p>
+            <ul>
+                <li><strong>Valor material:</strong> Peón=1, Alfil/Caballo=3, Torre=5, Dama=9</li>
+                <li><strong>Posición de piezas:</strong> Control del centro, desarrollo</li>
+                <li><strong>Seguridad del rey:</strong> Enroque, estructura de peones</li>
+                <li><strong>Movilidad:</strong> Número de movimientos legales disponibles</li>
+            </ul>
+        </div>
+        
+        <h2>🚀 Aplicaciones en Problemas Complejos</h2>
+        
+        <div class="applications-grid">
+            <div class="application-card">
+                <div class="application-icon">🤖</div>
+                <h4>Robótica</h4>
+                <p>Planificación de rutas y navegación autónoma</p>
+            </div>
+            
+            <div class="application-card">
+                <div class="application-icon">🚗</div>
+                <h4>Vehículos Autónomos</h4>
+                <p>Toma de decisiones en tiempo real</p>
+            </div>
+            
+            <div class="application-card">
+                <div class="application-icon">🏥</div>
+                <h4>Medicina</h4>
+                <p>Diagnóstico asistido y planificación de tratamientos</p>
+            </div>
+            
+            <div class="application-card">
+                <div class="application-icon">📦</div>
+                <h4>Logística</h4>
+                <p>Optimización de rutas y gestión de inventarios</p>
+            </div>
+        </div>
+        
+        <h2>⚖️ Ventajas y Limitaciones</h2>
+        
+        <div class="advantages-disadvantages">
+            <div class="advantages">
+                <h4>✅ Ventajas</h4>
+                <ul>
+                    <li>Reducción significativa del tiempo computacional</li>
+                    <li>Viabilidad para problemas de gran escala</li>
+                    <li>Flexibilidad para incorporar conocimiento experto</li>
+                    <li>Adaptabilidad a diferentes dominios</li>
+                    <li>Resultados prácticos y útiles</li>
+                </ul>
+            </div>
+            
+            <div class="disadvantages">
+                <h4>❌ Limitaciones</h4>
+                <ul>
+                    <li>No garantizan soluciones óptimas</li>
+                    <li>Pueden quedar atrapadas en óptimos locales</li>
+                    <li>Dependientes de la calidad del diseño</li>
+                    <li>Dificultad para verificar completitud</li>
+                    <li>Requieren ajuste específico por dominio</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>🔬 Métricas de Calidad</h2>
+        
+        <h3>Admisibilidad</h3>
+        <p>Una heurística es <span class="highlight">admisible</span> si nunca sobreestima el costo real para alcanzar el objetivo. Esta propiedad es crucial para garantizar optimalidad en algoritmos como A*.</p>
+        
+        <h3>Consistencia</h3>
+        <p>Una heurística es <span class="highlight">consistente</span> si satisface la desigualdad triangular, asegurando que el algoritmo de búsqueda encuentre el camino óptimo de manera eficiente.</p>
+        
+        <h3>Poder Informativo</h3>
+        <p>Se refiere a qué tan bien la heurística <span class="highlight">discrimina entre diferentes estados</span>, dirigiendo la búsqueda hacia las opciones más prometedoras.</p>
+    </div>
+</body>
+</html>
